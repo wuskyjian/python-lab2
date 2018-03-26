@@ -45,10 +45,20 @@ while True:
 
     elif choice == '4':
         key_word = input("Please enter the key word:")
+        task_to_remove = []
+
+        #  It is not safe to directly remove the task from the original one
+        #  during the iteration.
+
+        #  Better choice is to create a new list to store the task which is
+        #  going to remove
         for t in task:
             if key_word in t:
-                task.remove(t)
-                print("Task:\n", t, "\n is removed")
+                task_to_remove.append(t)
+
+        for tr in task_to_remove:
+            task.remove(tr)
+            print("Task:\n", tr, "is removed.\n")
 
     elif choice == '5':
         # Clear the file
